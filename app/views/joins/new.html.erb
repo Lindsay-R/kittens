@@ -10,7 +10,8 @@
 <div>
   <%= image_tag @kitten.image %>
   <%= form_for [@kitten, @join] do |f| %>
-    <%= f.collection_select :category_id, Category.order(:name), :id, :name, :prompt => true %>
+    <%= f.collection_select :category_id, Category.order(:name).reject{|category| @kitten.categories.include?(category)} , :id, :name, :prompt => "select one" %>
     <%= f.submit 'Add category' %>
   <% end %>
 </div>
+

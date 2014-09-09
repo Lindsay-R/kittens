@@ -1,5 +1,29 @@
 <h1>Kittens!</h1>
 
-<div class="kittens-container">
-  <%= render @kittens %>
+
+<!--<div class="kittens-container">-->
+  <!--<%= render @kittens %>-->
+
+<!--</div>-->
+
+
+
+<!--<div class="kittens-container">-->
+<div>
+
+  <% @kittens.each do |cat| %>
+    <img src= <%= cat.image %> />
+    <%= link_to cat.id, new_kitten_join_path(cat)%>
+  <% end %>
+
+</div>
+
+<div>
+
+  <% @joins.each do |j| %>
+    <% x =  (j.category_id)-1%>
+    <%= @categories[x].name %>
+  <% end %>
+
+
 </div>
